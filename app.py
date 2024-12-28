@@ -22,13 +22,17 @@ margen_bb_down = st.sidebar.slider("Margen Inferior Bollinger", min_value=0.0, m
 capital_inicial = st.sidebar.number_input("Capital Inicial", min_value=100.0, max_value=100000.0, value=1000.0, step=100.0)
 bias = st.sidebar.slider("Bias", min_value=-1.0, max_value=1.0, value=0.0, step=0.1)
 
+# Convertir las fechas seleccionadas a formato 'YYYY-MM-DD'
+since_str = since.strftime("%Y-%m-%d")
+to_str = to.strftime("%Y-%m-%d")
+
 # Botón para iniciar la estrategia
 if st.sidebar.button("Iniciar Estrategia"):
     # Crear instancia de la estrategia
     estrategia = EstrategiaTrading(
         pair=pair,
-        since=str(since),
-        to=str(to),
+        since=since_str,
+        to=to_str,
         buy_threshold=buy_threshold,
         sell_threshold=sell_threshold,
         weight_rsi=weight_rsi,
