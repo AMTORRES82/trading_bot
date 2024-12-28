@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from EstrategiaTrading import EstrategiaTrading  # Asegúrate de importar tu clase correctamente
+from estrategia_trading import EstrategiaTrading  # Asegúrate de importar tu clase correctamente
 
 # Configuración inicial de la página
 st.set_page_config(page_title="Estrategia de Trading", layout="wide")
