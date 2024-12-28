@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from krakenex import API
+import krakenex
 import streamlit as st
 from plotly import graph_objects as go
 from utils import calcular_sharpe_ratio, calcular_rentabilidad_acumulada_anualizada, cum_return_list
