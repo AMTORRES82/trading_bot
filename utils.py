@@ -1,3 +1,5 @@
+import numpy as np
+
 def cum_return_list(returns):
     """
     Calculates the cumulative returns from a list or array of returns.
