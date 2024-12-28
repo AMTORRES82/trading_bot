@@ -105,7 +105,8 @@ class EstrategiaTrading:
 
             
         except Exception as e:
-            print(f"Error al calcular las Bandas de Bollinger: {e}")
+            #print(f"Error al calcular las Bandas de Bollinger: {e}")
+            st.error(f"Error al calcular las Bandas de Bollinger: {e}") 
 
     def calculate_rsi(self, window=14, graph=0):
         """
@@ -141,8 +142,9 @@ class EstrategiaTrading:
                 return rsi
 
                 
-        except Exception as e:
-            print(f"Error al calcular el RSI: {e}")
+        except Exception as e:                       
+          #  print(f"Error al calcular el RSI: {e}")
+            st.error(f"Error al calcular el RSI: {e}")
 
     def generate_signal(self,rsi_sobrecompra=70, rsi_sobreventa=30):
         """
