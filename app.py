@@ -26,6 +26,10 @@ bias = st.sidebar.slider("Bias", min_value=-1.0, max_value=1.0, value=0.0, step=
 since_str = since.strftime("%Y-%m-%d")
 to_str = to.strftime("%Y-%m-%d")
 
+# Mostrar las fechas convertidas para depuración
+st.write("Fecha Inicio (formato correcto):", since_str)
+st.write("Fecha Fin (formato correcto):", to_str)
+
 # Botón para iniciar la estrategia
 if st.sidebar.button("Iniciar Estrategia"):
     # Crear instancia de la estrategia
