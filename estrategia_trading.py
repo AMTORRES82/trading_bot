@@ -65,8 +65,10 @@ class EstrategiaTrading:
                                   xaxis_title="Fecha",
                                   yaxis_title=feature)
                 fig.show()
+        #except Exception as e:
+        #    print(f"Error al descargar datos de Kraken: {e}")
         except Exception as e:
-            print(f"Error al descargar datos de Kraken: {e}")
+            st.error(f"Error al descargar datos de Kraken: {e}")
 
     def calculate_bollinger_bands(self, window=20, num_std=2, graph=0):
         """
