@@ -387,7 +387,7 @@ class EstrategiaTrading:
             }
     
         except Exception as e:
-            print(f"Error: {e}")
+            st.error(f"Error: {e}")
             return None
 
     def objetive_function(self):
