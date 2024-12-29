@@ -112,7 +112,7 @@ class EstrategiaTrading:
             #print(f"Error al calcular las Bandas de Bollinger: {e}")
             st.error(f"Error al calcular las Bandas de Bollinger: {e}") 
 
-    def calculate_rsi(self, window=14, graph=0):
+    def calculate_rsi(self, window=20, graph=0):
         """
         Calcula el Índice de Fuerza Relativa (RSI).
 
@@ -163,7 +163,7 @@ class EstrategiaTrading:
             pandas.Series: Señales generadas.
         """
         try:
-            self.data['rsi'] = self.calculate_rsi(window=14, graph=0)
+            self.data['rsi'] = self.calculate_rsi(window=20, graph=0)
             rolling_mean, upper_band, lower_band = self.calculate_bollinger_bands(window=20, num_std=2, graph=0)
             self.data['upper_band'] = upper_band
             self.data['lower_band'] = lower_band
