@@ -1,4 +1,5 @@
 import numpy as np
+import streamlit as st
 
 def cum_return_list(returns):
     """
