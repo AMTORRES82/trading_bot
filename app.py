@@ -53,12 +53,14 @@ if st.sidebar.button("Iniciar Estrategia"):
     st.subheader("📉 Datos de Kraken")
     with st.spinner("Descargando datos desde Kraken..."):
         estrategia.download_kraken_data()
-        estrategia.download_kraken_data(graph=1)
+        st.dataframe(estrategia.data.head())
+        fig = estrategia.download_kraken_data(graph=1)  # Captura el gráfico
+        st.pyplot(fig)  # Renderiza el gráfico
+
     
     if estrategia.data is not None:
         st.write("Datos descargados exitosamente:")
-        fig=st.dataframe(estrategia.data.head())
-        st.pyplot(fig)
+
 
         # Generar señales y backtest
         with st.spinner("Generando señales y realizando backtest..."):
