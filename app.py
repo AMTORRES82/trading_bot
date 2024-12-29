@@ -27,8 +27,8 @@ since_str = since.strftime("%Y-%m-%d")
 to_str = to.strftime("%Y-%m-%d")
 
 # Mostrar las fechas convertidas para depuración
-st.write("Fecha Inicio (formato correcto):", since_str)
-st.write("Fecha Fin (formato correcto):", to_str)
+#st.write("Fecha Inicio (formato correcto):", since_str)
+#st.write("Fecha Fin (formato correcto):", to_str)
 
 # Botón para iniciar la estrategia
 if st.sidebar.button("Iniciar Estrategia"):
