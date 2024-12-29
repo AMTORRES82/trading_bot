@@ -20,15 +20,15 @@ pair = st.sidebar.text_input("Par de Trading (Ej: BTC/USD)", value="ETH/USDT")
 
 # Diccionario con parámetros predeterminados por par
 default_params_by_pair = {
-   "ETH/USDT": {
-         'buy_threshold': -0.20997609155869645,
-         'sell_threshold': 0.33720546489308373,
-         'weight_rsi': 0.21966916415306803,
-         'margen_bb_up': -0.09043144177267018,
-         'margen_bb_down': -0.005258409961895008,
-         'bias': 0.07329623454969729}
-            },
-   "BTC/USDT": {
+    "ETH/USDT": {
+        'buy_threshold': -0.20997609155869645,
+        'sell_threshold': 0.33720546489308373,
+        'weight_rsi': 0.21966916415306803,
+        'margen_bb_up': -0.09043144177267018,
+        'margen_bb_down': -0.005258409961895008,
+        'bias': 0.07329623454969729
+    },
+    "BTC/USDT": {
         'buy_threshold': -0.18449622279468214,
         'sell_threshold': 0.08081585009697578,
         'weight_rsi': 0.27502739017465827,
@@ -57,19 +57,19 @@ since = st.sidebar.date_input("Fecha Inicio", value=pd.to_datetime("2008-01-01")
 to = st.sidebar.date_input("Fecha Fin", value=pd.to_datetime("2024-11-19"))
 
 # Configurar deslizadores con los valores predeterminados seleccionados
-buy_threshold = st.sidebar.slider("Umbral de Compra", min_value=-1.0, max_value=0.0, 
+buy_threshold = st.sidebar.slider("Umbral de Compra", min_value=-1.0, max_value=0.0,
                                    value=default_params['buy_threshold'], step=0.001)
-sell_threshold = st.sidebar.slider("Umbral de Venta", min_value=0.0, max_value=1.0, 
+sell_threshold = st.sidebar.slider("Umbral de Venta", min_value=0.0, max_value=1.0,
                                     value=default_params['sell_threshold'], step=0.001)
-weight_rsi = st.sidebar.slider("Peso del RSI", min_value=0.0, max_value=1.0, 
+weight_rsi = st.sidebar.slider("Peso del RSI", min_value=0.0, max_value=1.0,
                                 value=default_params['weight_rsi'], step=0.001)
-margen_bb_up = st.sidebar.slider("Margen Superior Bollinger", min_value=-0.5, max_value=0.5, 
+margen_bb_up = st.sidebar.slider("Margen Superior Bollinger", min_value=-0.5, max_value=0.5,
                                   value=default_params['margen_bb_up'], step=0.001)
-margen_bb_down = st.sidebar.slider("Margen Inferior Bollinger", min_value=-0.5, max_value=0.5, 
+margen_bb_down = st.sidebar.slider("Margen Inferior Bollinger", min_value=-0.5, max_value=0.5,
                                     value=default_params['margen_bb_down'], step=0.001)
-capital_inicial = st.sidebar.number_input("Capital Inicial", min_value=100.0, max_value=100000.0, 
+capital_inicial = st.sidebar.number_input("Capital Inicial", min_value=100.0, max_value=100000.0,
                                           value=1000.0, step=1.0)
-bias = st.sidebar.slider("Bias", min_value=-1.0, max_value=1.0, 
+bias = st.sidebar.slider("Bias", min_value=-1.0, max_value=1.0,
                          value=default_params['bias'], step=0.001)
 
 # Convertir las fechas seleccionadas a formato 'YYYY-MM-DD'
