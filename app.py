@@ -12,34 +12,51 @@ st.set_page_config(page_title="Estrategia de Trading", layout="wide")
 # Título principal
 st.title("📈 Estrategia de Trading con Bandas de Bollinger y RSI")
 
-# Valores por defecto
-
-# ETH
-default_params = {
- 'buy_threshold': -0.47442178064256385,
- 'sell_threshold': 0.3450448183762558,
- 'weight_rsi': 0.14201928777708459,
- 'margen_bb_up': -0.04184428920352222,
- 'margen_bb_down': -0.009289421751564001,
- 'bias': 0.08372627759438869}
-
-#XRP
-#default_params = {
-#    'buy_threshold': -0.30727638655571937,
-#    'sell_threshold': 0.6730032659885536,
-#    'weight_rsi': 0.1529093209358433,
-#    'margen_bb_up': -0.08980611412527845,
-#    'margen_bb_down': 0.016109300913702343,
-#    'bias': 0.07765842067419922
-#}
-
 # Barra lateral para parámetros
 st.sidebar.header("Configuración de la Estrategia")
+
+# Definir el par predeterminado
 pair = st.sidebar.text_input("Par de Trading (Ej: BTC/USD)", value="ETH/USDT")
+
+# Diccionario con parámetros predeterminados por par
+default_params_by_pair = {
+    "ETH/USDT": {
+        'buy_threshold': -0.47442178064256385,
+        'sell_threshold': 0.3450448183762558,
+        'weight_rsi': 0.14201928777708459,
+        'margen_bb_up': -0.04184428920352222,
+        'margen_bb_down': -0.009289421751564001,
+        'bias': 0.08372627759438869
+    },
+    "BTC/USDT": {
+        'buy_threshold': -0.18449622279468214,
+        'sell_threshold': 0.08081585009697578,
+        'weight_rsi': 0.27502739017465827,
+        'margen_bb_up': -0.01678456481588446,
+        'margen_bb_down': 0.0053315001317940924,
+        'bias': 0.0350977151128202
+    }
+}
+
+# Obtener los parámetros por defecto basados en el par seleccionado
+if pair in default_params_by_pair:
+    default_params = default_params_by_pair[pair]
+else:
+    # Parámetros predeterminados genéricos si el par no está definido
+    default_params = {
+        'buy_threshold': -0.3,
+        'sell_threshold': 0.3,
+        'weight_rsi': 0.5,
+        'margen_bb_up': 0.05,
+        'margen_bb_down': 0.05,
+        'bias': 0.0
+    }
+
+# Configurar entradas para las fechas
 since = st.sidebar.date_input("Fecha Inicio", value=pd.to_datetime("2008-01-01"))
 to = st.sidebar.date_input("Fecha Fin", value=pd.to_datetime("2024-11-19"))
 
-# Configurar deslizadores con los valores predeterminados
+# Configurar deslizadores con los valores predeterminados seleccionados
 buy_threshold = st.sidebar.slider("Umbral de Compra", min_value=-1.0, max_value=0.0, 
                                    value=default_params['buy_threshold'], step=0.001)
 sell_threshold = st.sidebar.slider("Umbral de Venta", min_value=0.0, max_value=1.0, 
