@@ -12,26 +12,41 @@ st.set_page_config(page_title="Estrategia de Trading", layout="wide")
 # Título principal
 st.title("📈 Estrategia de Trading con Bandas de Bollinger y RSI")
 
+# Valores por defecto
+default_params = {
+    'buy_threshold': -0.30727638655571937,
+    'sell_threshold': 0.6730032659885536,
+    'weight_rsi': 0.1529093209358433,
+    'margen_bb_up': -0.08980611412527845,
+    'margen_bb_down': 0.016109300913702343,
+    'bias': 0.07765842067419922
+}
+
 # Barra lateral para parámetros
 st.sidebar.header("Configuración de la Estrategia")
 pair = st.sidebar.text_input("Par de Trading (Ej: BTC/USD)", value="BTCUSD")
 since = st.sidebar.date_input("Fecha Inicio", value=pd.to_datetime("2023-01-01"))
 to = st.sidebar.date_input("Fecha Fin", value=pd.to_datetime("2023-12-31"))
-buy_threshold = st.sidebar.slider("Umbral de Compra", min_value=-1.0, max_value=0.0, value=-0.3, step=0.1)
-sell_threshold = st.sidebar.slider("Umbral de Venta", min_value=0.0, max_value=1.0, value=0.3, step=0.1)
-weight_rsi = st.sidebar.slider("Peso del RSI", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
-margen_bb_up = st.sidebar.slider("Margen Superior Bollinger", min_value=0.0, max_value=0.5, value=0.05, step=0.01)
-margen_bb_down = st.sidebar.slider("Margen Inferior Bollinger", min_value=0.0, max_value=0.5, value=0.05, step=0.01)
-capital_inicial = st.sidebar.number_input("Capital Inicial", min_value=100.0, max_value=100000.0, value=1000.0, step=100.0)
-bias = st.sidebar.slider("Bias", min_value=-1.0, max_value=1.0, value=0.0, step=0.1)
+
+# Configurar deslizadores con los valores predeterminados
+buy_threshold = st.sidebar.slider("Umbral de Compra", min_value=-1.0, max_value=0.0, 
+                                   value=default_params['buy_threshold'], step=0.01)
+sell_threshold = st.sidebar.slider("Umbral de Venta", min_value=0.0, max_value=1.0, 
+                                    value=default_params['sell_threshold'], step=0.01)
+weight_rsi = st.sidebar.slider("Peso del RSI", min_value=0.0, max_value=1.0, 
+                                value=default_params['weight_rsi'], step=0.01)
+margen_bb_up = st.sidebar.slider("Margen Superior Bollinger", min_value=-0.5, max_value=0.5, 
+                                  value=default_params['margen_bb_up'], step=0.01)
+margen_bb_down = st.sidebar.slider("Margen Inferior Bollinger", min_value=-0.5, max_value=0.5, 
+                                    value=default_params['margen_bb_down'], step=0.01)
+capital_inicial = st.sidebar.number_input("Capital Inicial", min_value=100.0, max_value=100000.0, 
+                                          value=1000.0, step=100.0)
+bias = st.sidebar.slider("Bias", min_value=-1.0, max_value=1.0, 
+                         value=default_params['bias'], step=0.01)
 
 # Convertir las fechas seleccionadas a formato 'YYYY-MM-DD'
 since_str = since.strftime("%Y-%m-%d")
 to_str = to.strftime("%Y-%m-%d")
-
-# Mostrar las fechas convertidas para depuración
-#st.write("Fecha Inicio (formato correcto):", since_str)
-#st.write("Fecha Fin (formato correcto):", to_str)
 
 # Botón para iniciar la estrategia
 if st.sidebar.button("Iniciar Estrategia"):
@@ -53,17 +68,13 @@ if st.sidebar.button("Iniciar Estrategia"):
     st.subheader("📉 Datos de Kraken")
     with st.spinner("Descargando datos desde Kraken..."):
         estrategia.download_kraken_data()
-        
-        
 
-    
     if estrategia.data is not None:
         st.write("Datos descargados exitosamente:")
         st.dataframe(estrategia.data.head())
         estrategia.download_kraken_data(graph=1)
         estrategia.calculate_bollinger_bands(graph=1)
         estrategia.calculate_rsi(graph=1)
-
 
         # Generar señales y backtest
         with st.spinner("Generando señales y realizando backtest..."):
@@ -83,6 +94,10 @@ if st.sidebar.button("Iniciar Estrategia"):
             st.error("Error al calcular los resultados de la estrategia.")
     else:
         st.error("Error al descargar los datos. Revisa los parámetros ingresados.")
+
+else:
+    st.info("Configura los parámetros de la estrategia en la barra lateral y haz clic en 'Iniciar Estrategia'.")
+
 
 else:
     st.info("Configura los parámetros de la estrategia en la barra lateral y haz clic en 'Iniciar Estrategia'.")
