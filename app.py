@@ -53,7 +53,7 @@ if st.sidebar.button("Iniciar Estrategia"):
     st.subheader("📉 Datos de Kraken")
     with st.spinner("Descargando datos desde Kraken..."):
         estrategia.download_kraken_data()
-        estrategia.download_kraken_data(feature='close', graph=1)
+        estrategia.download_kraken_data(graph=1)
     
     if estrategia.data is not None:
         st.write("Datos descargados exitosamente:")
