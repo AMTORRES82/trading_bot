@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import krakenex
 import streamlit as st
+import matplotlib as plt
 from plotly import graph_objects as go
 from utils import calcular_sharpe_ratio, calcular_rentabilidad_acumulada_anualizada, cum_return_list
 
