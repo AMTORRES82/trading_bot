@@ -97,8 +97,3 @@ if st.sidebar.button("Iniciar Estrategia"):
 
 else:
     st.info("Configura los parámetros de la estrategia en la barra lateral y haz clic en 'Iniciar Estrategia'.")
-
-
-else:
-    st.info("Configura los parámetros de la estrategia en la barra lateral y haz clic en 'Iniciar Estrategia'.")
-
