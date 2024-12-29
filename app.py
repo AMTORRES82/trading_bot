@@ -13,14 +13,25 @@ st.set_page_config(page_title="Estrategia de Trading", layout="wide")
 st.title("📈 Estrategia de Trading con Bandas de Bollinger y RSI")
 
 # Valores por defecto
+
+# ETH
 default_params = {
-    'buy_threshold': -0.30727638655571937,
-    'sell_threshold': 0.6730032659885536,
-    'weight_rsi': 0.1529093209358433,
-    'margen_bb_up': -0.08980611412527845,
-    'margen_bb_down': 0.016109300913702343,
-    'bias': 0.07765842067419922
-}
+ 'buy_threshold': -0.46599442349226006,
+ 'sell_threshold': 0.2701945560797426,
+ 'weight_rsi': 0.4157877871594298,
+ 'margen_bb_up': -0.05957749114715736,
+ 'margen_bb_down': -0.01808409386563143,
+ 'bias': 0.05253694096201088}
+
+#XRP
+#default_params = {
+#    'buy_threshold': -0.30727638655571937,
+#    'sell_threshold': 0.6730032659885536,
+#    'weight_rsi': 0.1529093209358433,
+#    'margen_bb_up': -0.08980611412527845,
+#    'margen_bb_down': 0.016109300913702343,
+#    'bias': 0.07765842067419922
+#}
 
 # Barra lateral para parámetros
 st.sidebar.header("Configuración de la Estrategia")
