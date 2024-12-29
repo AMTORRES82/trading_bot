@@ -273,7 +273,7 @@ class EstrategiaTrading:
         
             # Depuración: Validar columnas antes del bucle
             st.write("Contenido de self.data antes del bucle:")
-            st.write(self.data[['close', 'trading_signal', 'close_ult']].head())
+            st.write(self.data.head())
 
             # Iterar sobre los datos
             for i in range(len(self.data)):
@@ -351,7 +351,9 @@ class EstrategiaTrading:
 
             self.data['cantidad_acciones']=acciones_historial
             self.data['cash']=cash_historial
-
+            st.write("Contenido final del bucle de self.data:")
+            st.write(self.data.head())
+            
             # Cálculo del Sharpe Ratio
             sharpe_ratio = calcular_sharpe_ratio(retornos)
             sharpe_ratio_mercado = calcular_sharpe_ratio(retorno_total_mercado)
