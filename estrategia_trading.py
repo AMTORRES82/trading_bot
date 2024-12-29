@@ -270,6 +270,10 @@ class EstrategiaTrading:
             #cash_historial.append(cash)
             #capital_historial.append(capital)
             #acciones_historial.append(acciones)
+        
+            # Depuración: Validar columnas antes del bucle
+            st.write("Contenido de self.data antes del bucle:")
+            st.write(self.data[['close', 'trading_signal', 'close_ult']].head())
 
             # Iterar sobre los datos
             for i in range(len(self.data)):
@@ -363,6 +367,8 @@ class EstrategiaTrading:
             rentabilidad_anualizada = calcular_rentabilidad_acumulada_anualizada(retornos, retorno_tot_acum_estrategia[-1])
             rentabilidad_anualizada_mercado = calcular_rentabilidad_acumulada_anualizada(retorno_total_mercado, retorno_tot_acum_mercado[-1])
             self.data=self.data.copy()
+            st.write("Contenido final de self.data:")
+            st.write(self.data.head())
             return {
               "Sharpe_Ratio_anualizado_estrategia": round(sharpe_ratio,4),
               "Retorno_Acumulado_estrategia": round(retorno_tot_acum_estrategia[-1],4),
