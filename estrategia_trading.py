@@ -232,8 +232,8 @@ class EstrategiaTrading:
             dict: Un diccionario con métricas de rendimiento, incluyendo Sharpe Ratio, VaR, retornos acumulados y estadísticas adicionales.
         """
         try: 
-            st.write("Contenido de self.data antes del backtest:", self.data.head())
-            st.write("Valores nulos en self.data:", self.data.isnull().sum())
+            #st.write("Contenido de self.data antes del backtest:", self.data.head())
+            #st.write("Valores nulos en self.data:", self.data.isnull().sum())
             # Validar entradas
             if not isinstance(self.data, pd.DataFrame):
               raise ValueError("El parámetro 'data' debe ser un pandas.DataFrame.")
@@ -272,8 +272,8 @@ class EstrategiaTrading:
             #acciones_historial.append(acciones)
         
             # Depuración: Validar columnas antes del bucle
-            st.write("Contenido de self.data antes del bucle:")
-            st.write(self.data.head())
+            #st.write("Contenido de self.data antes del bucle:")
+            #st.write(self.data.head())
 
             # Iterar sobre los datos
             for i in range(len(self.data)):
@@ -351,18 +351,14 @@ class EstrategiaTrading:
 
             self.data['cantidad_acciones']=acciones_historial
             self.data['cash']=cash_historial
-            st.write("Contenido final del bucle de self.data:")
-            st.write(self.data.head())
-            st.write(self.data.retornos.max())
-            st.write(self.data.retornos.min())
-            st.write(self.data.retornos.mean())
-            st.write(self.data.retornos.isnull().sum())
+            #st.write("Contenido final del bucle de self.data:")
+            #st.write(self.data.head())
+
             # Cálculo del Sharpe Ratio
             sharpe_ratio = calcular_sharpe_ratio(retornos)
             sharpe_ratio_mercado = calcular_sharpe_ratio(retorno_total_mercado)
 
             #Cálculo del VaR
-            #VaR
             VaR95_mercado = np.percentile(retorno_total_mercado, 5)
             VaR99_mercado = np.percentile(retorno_total_mercado, 1)
             VaR95_estrategia = np.percentile(retornos, 5)
@@ -372,8 +368,8 @@ class EstrategiaTrading:
             rentabilidad_anualizada = calcular_rentabilidad_acumulada_anualizada(retornos, retorno_tot_acum_estrategia[-1])
             rentabilidad_anualizada_mercado = calcular_rentabilidad_acumulada_anualizada(retorno_total_mercado, retorno_tot_acum_mercado[-1])
             self.data=self.data.copy()
-            st.write("Contenido final de self.data:")
-            st.write(self.data.head())
+            #st.write("Contenido final de self.data:")
+            #st.write(self.data.head())
             return {
               "Sharpe_Ratio_anualizado_estrategia": round(sharpe_ratio,4),
               "Retorno_Acumulado_estrategia": round(retorno_tot_acum_estrategia[-1],4),
@@ -545,4 +541,4 @@ class EstrategiaTrading:
             plt.show()
 
         except Exception as e:
-            print(f"Error al generar los gráficos: {e}")
+            st.error(f"Error al generar los gráficos: {e}")
