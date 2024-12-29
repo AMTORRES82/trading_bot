@@ -62,7 +62,7 @@ def calcular_sharpe_ratio(retornos_trading):
         retornos_trading_filtrados = [r for r in retornos_trading if r != 0]
 
         # Verificar si hay suficientes datos para calcular el Sharpe Ratio
-        if len(retornos_trading_filtrados) < 15:
+        if len(retornos_trading_filtrados) < 10:
             raise ValueError("No hay suficientes datos para calcular el Sharpe Ratio.")
 
         # Calcular la media y desviación estándar de los retornos
