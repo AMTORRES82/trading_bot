@@ -51,7 +51,7 @@ margen_bb_up = st.sidebar.slider("Margen Superior Bollinger", min_value=-0.5, ma
 margen_bb_down = st.sidebar.slider("Margen Inferior Bollinger", min_value=-0.5, max_value=0.5, 
                                     value=default_params['margen_bb_down'], step=0.001)
 capital_inicial = st.sidebar.number_input("Capital Inicial", min_value=100.0, max_value=100000.0, 
-                                          value=1000.0, step=1)
+                                          value=1000.0, step=1.0)
 bias = st.sidebar.slider("Bias", min_value=-1.0, max_value=1.0, 
                          value=default_params['bias'], step=0.001)
 
