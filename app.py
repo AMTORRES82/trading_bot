@@ -21,7 +21,7 @@ pair = st.sidebar.text_input("Par de Trading (Ej: BTC/USD)", value="ETH/USDT")
 # Diccionario con parámetros predeterminados por par
 default_params_by_pair = {
    "ETH/USDT": {
-        'buy_threshold': -0.20997609155869645,
+         'buy_threshold': -0.20997609155869645,
          'sell_threshold': 0.33720546489308373,
          'weight_rsi': 0.21966916415306803,
          'margen_bb_up': -0.09043144177267018,
