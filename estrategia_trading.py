@@ -101,7 +101,8 @@ class EstrategiaTrading:
                 fig.update_layout(title="Bollinger Bands",
                                   xaxis_title="Fecha",
                                   yaxis_title="Precio")
-                return fig.show()
+                #fig.show() 
+                return st.plotly_chart(fig)
             else:
                 return rolling_mean, upper_band, lower_band
                 
@@ -140,7 +141,8 @@ class EstrategiaTrading:
                 fig.update_layout(title="RSI y Precio",
                                   xaxis_title="Fecha",
                                   legend_title="Leyenda")
-                return fig.show()
+                #fig.show()
+                return st.plotly_chart(fig)
             else:
                 return rsi
 
