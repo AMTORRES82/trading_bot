@@ -379,7 +379,6 @@ class EstrategiaTrading:
               "Sharpe_Ratio_anualizado_estrategia": round(sharpe_ratio,4),
               "Retorno_Acumulado_estrategia": round(retorno_tot_acum_estrategia[-1],4),
               "Retorno_Acumulado_Anualizado_estrategia": round(rentabilidad_anualizada,4),
-              "Retorno_bis":round(capital_historial[-1]/self.capital_inicial-1,4),
               "Sharpe_Ratio_anualizado_mercado": round(sharpe_ratio_mercado,4),
               "Retorno_Acumulado_mercado": round(retorno_tot_acum_mercado[-1],4),
               "Retorno_Acumulado_Anualizado_mercado": round(rentabilidad_anualizada_mercado,4),
