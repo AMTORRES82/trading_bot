@@ -57,7 +57,8 @@ if st.sidebar.button("Iniciar Estrategia"):
     
     if estrategia.data is not None:
         st.write("Datos descargados exitosamente:")
-        st.dataframe(estrategia.data.head())
+        fig=st.dataframe(estrategia.data.head())
+        st.pyplot(fig)
 
         # Generar señales y backtest
         with st.spinner("Generando señales y realizando backtest..."):
