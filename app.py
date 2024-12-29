@@ -28,7 +28,7 @@ default_params_by_pair = {
          'margen_bb_down': -0.005258409961895008,
          'bias': 0.07329623454969729}
             },
-    "BTC/USDT": {
+   "BTC/USDT": {
         'buy_threshold': -0.18449622279468214,
         'sell_threshold': 0.08081585009697578,
         'weight_rsi': 0.27502739017465827,
