@@ -353,7 +353,10 @@ class EstrategiaTrading:
             self.data['cash']=cash_historial
             st.write("Contenido final del bucle de self.data:")
             st.write(self.data.head())
-            
+            st.write(self.data.retornos.max())
+            st.write(self.data.retornos.min())
+            st.write(self.data.retornos.mean())
+            st.write(self.data.retornos.isnull().sum())
             # Cálculo del Sharpe Ratio
             sharpe_ratio = calcular_sharpe_ratio(retornos)
             sharpe_ratio_mercado = calcular_sharpe_ratio(retorno_total_mercado)
