@@ -55,8 +55,8 @@ if st.sidebar.button("Iniciar Estrategia"):
         estrategia.download_kraken_data()
         st.dataframe(estrategia.data.head())
         estrategia.download_kraken_data(graph=1)
-        #fig = estrategia.download_kraken_data(graph=1)  # Captura el gráfico
-        #st.pyplot(fig)  # Renderiza el gráfico
+        estrategia.calculate_bollinger_bands(graph=1)
+        estrategia.calculate_rsi(graph=1)
 
     
     if estrategia.data is not None:
