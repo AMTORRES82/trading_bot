@@ -67,7 +67,8 @@ class EstrategiaTrading:
                 fig.update_layout(title=f"{feature} de {self.pair}",
                                   xaxis_title="Fecha",
                                   yaxis_title=feature)
-                fig.show()
+                #fig.show()
+                st.plotly_chart(fig)
         #except Exception as e:
         #    print(f"Error al descargar datos de Kraken: {e}")
         except Exception as e:
