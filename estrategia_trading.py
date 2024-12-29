@@ -172,7 +172,7 @@ class EstrategiaTrading:
 
             return signal_rsi, signal_bb
         except Exception as e:
-            print(f"Error al generar señales: {e}")
+            st.error(f"Error al generar señales: {e}")
             return None
 
 
@@ -216,7 +216,7 @@ class EstrategiaTrading:
             return trading_signal
 
         except Exception as e:
-            print(f"Error: {e}")
+            st.error(f"Error apply_thresholds: {e}")
             return None
 
 
@@ -387,7 +387,7 @@ class EstrategiaTrading:
             }
     
         except Exception as e:
-            st.error(f"Error: {e}")
+            st.error(f"Error backtest: {e}")
             return None
 
     def objetive_function(self):
@@ -424,8 +424,8 @@ class EstrategiaTrading:
             if self.buy_threshold >= self.sell_threshold:
                 raise ValueError("El 'buy_threshold' debe ser menor que el 'sell_threshold'.")
 
-            print(f"Parámetros: capital_inicial={self.capital_inicial}, buy_threshold={self.buy_threshold}, sell_threshold={self.sell_threshold},"
-                  f"weight_rsi={self.weight_rsi}, margen_bb_up={self.margen_bb_up}, margen_bb_down={self.margen_bb_down}, bias={self.bias}")
+            #print(f"Parámetros: capital_inicial={self.capital_inicial}, buy_threshold={self.buy_threshold}, sell_threshold={self.sell_threshold},"
+            #      f"weight_rsi={self.weight_rsi}, margen_bb_up={self.margen_bb_up}, margen_bb_down={self.margen_bb_down}, bias={self.bias}")
             
             # Generar señales
             signal_rsi, signal_bb = self.generate_signal()
@@ -451,7 +451,7 @@ class EstrategiaTrading:
             return resultados
 
         except Exception as e:
-            print(f"Error: {e}")
+            st.error(f"Error func.obj.: {e}")
             return None
 
     def graph(self):
