@@ -16,12 +16,12 @@ st.title("📈 Estrategia de Trading con Bandas de Bollinger y RSI")
 
 # ETH
 default_params = {
- 'buy_threshold': -0.46599442349226006,
- 'sell_threshold': 0.2701945560797426,
- 'weight_rsi': 0.4157877871594298,
- 'margen_bb_up': -0.05957749114715736,
- 'margen_bb_down': -0.01808409386563143,
- 'bias': 0.05253694096201088}
+ 'buy_threshold': -0.47442178064256385,
+ 'sell_threshold': 0.3450448183762558,
+ 'weight_rsi': 0.14201928777708459,
+ 'margen_bb_up': -0.04184428920352222,
+ 'margen_bb_down': -0.009289421751564001,
+ 'bias': 0.08372627759438869}
 
 #XRP
 #default_params = {
@@ -35,9 +35,9 @@ default_params = {
 
 # Barra lateral para parámetros
 st.sidebar.header("Configuración de la Estrategia")
-pair = st.sidebar.text_input("Par de Trading (Ej: BTC/USD)", value="BTCUSD")
-since = st.sidebar.date_input("Fecha Inicio", value=pd.to_datetime("2023-01-01"))
-to = st.sidebar.date_input("Fecha Fin", value=pd.to_datetime("2023-12-31"))
+pair = st.sidebar.text_input("Par de Trading (Ej: BTC/USD)", value="ETH/USDT")
+since = st.sidebar.date_input("Fecha Inicio", value=pd.to_datetime("2008-01-01"))
+to = st.sidebar.date_input("Fecha Fin", value=pd.to_datetime("2024-11-19"))
 
 # Configurar deslizadores con los valores predeterminados
 buy_threshold = st.sidebar.slider("Umbral de Compra", min_value=-1.0, max_value=0.0, 
