@@ -29,7 +29,7 @@ def cum_return_list(returns):
         return cum_return
 
     except Exception as e:
-        print(f"Error: {e}")
+        st.error(f"Error cum_list: {e}")
         return None
 
 def calcular_sharpe_ratio(retornos_trading):
@@ -76,7 +76,7 @@ def calcular_sharpe_ratio(retornos_trading):
         return sharpe_ratio
 
     except Exception as e:
-        print(f"Error: {e}")
+        st.error(f"Error sharpe ratio: {e}")
         return None
 
 def calcular_rentabilidad_acumulada_anualizada(retornos_trading, rentabilidad_acumulada):
@@ -112,5 +112,5 @@ def calcular_rentabilidad_acumulada_anualizada(retornos_trading, rentabilidad_ac
         return rentabilidad_acumulada_anualizada
 
     except Exception as e:
-        print(f"Error: {e}")
+        st.error(f"rent_acum: {e}")
         return None
