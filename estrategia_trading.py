@@ -231,7 +231,9 @@ class EstrategiaTrading:
         Returns:
             dict: Un diccionario con métricas de rendimiento, incluyendo Sharpe Ratio, VaR, retornos acumulados y estadísticas adicionales.
         """
-        try:          
+        try: 
+            st.write("Contenido de self.data antes del backtest:", self.data.head())
+            st.write("Valores nulos en self.data:", self.data.isnull().sum())
             # Validar entradas
             if not isinstance(self.data, pd.DataFrame):
               raise ValueError("El parámetro 'data' debe ser un pandas.DataFrame.")
