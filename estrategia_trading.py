@@ -539,8 +539,9 @@ class EstrategiaTrading:
             ax5_price.legend(loc='upper right')
 
             # Mostrar la gráfica
-            plt.subplots_adjust(top=0.92)
-            plt.show()
+            #plt.subplots_adjust(top=0.92)
+            #plt.show()
+            st.pyplot(fig)
 
         except Exception as e:
             st.error(f"Error al generar los gráficos: {e}")
