@@ -41,19 +41,19 @@ to = st.sidebar.date_input("Fecha Fin", value=pd.to_datetime("2023-12-31"))
 
 # Configurar deslizadores con los valores predeterminados
 buy_threshold = st.sidebar.slider("Umbral de Compra", min_value=-1.0, max_value=0.0, 
-                                   value=default_params['buy_threshold'], step=0.01)
+                                   value=default_params['buy_threshold'], step=0.001)
 sell_threshold = st.sidebar.slider("Umbral de Venta", min_value=0.0, max_value=1.0, 
-                                    value=default_params['sell_threshold'], step=0.01)
+                                    value=default_params['sell_threshold'], step=0.001)
 weight_rsi = st.sidebar.slider("Peso del RSI", min_value=0.0, max_value=1.0, 
-                                value=default_params['weight_rsi'], step=0.01)
+                                value=default_params['weight_rsi'], step=0.001)
 margen_bb_up = st.sidebar.slider("Margen Superior Bollinger", min_value=-0.5, max_value=0.5, 
-                                  value=default_params['margen_bb_up'], step=0.01)
+                                  value=default_params['margen_bb_up'], step=0.001)
 margen_bb_down = st.sidebar.slider("Margen Inferior Bollinger", min_value=-0.5, max_value=0.5, 
-                                    value=default_params['margen_bb_down'], step=0.01)
+                                    value=default_params['margen_bb_down'], step=0.001)
 capital_inicial = st.sidebar.number_input("Capital Inicial", min_value=100.0, max_value=100000.0, 
-                                          value=1000.0, step=100.0)
+                                          value=1000.0, step=1)
 bias = st.sidebar.slider("Bias", min_value=-1.0, max_value=1.0, 
-                         value=default_params['bias'], step=0.01)
+                         value=default_params['bias'], step=0.001)
 
 # Convertir las fechas seleccionadas a formato 'YYYY-MM-DD'
 since_str = since.strftime("%Y-%m-%d")
