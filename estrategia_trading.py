@@ -37,8 +37,8 @@ class EstrategiaTrading:
             since_time = int(pd.to_datetime(self.since).timestamp())
             to_time = int(pd.to_datetime(self.to).timestamp())
             # Mostrar los timestamps para depuración
-            st.write("Timestamp Fecha Inicio kraken:", since_time)
-            st.write("Timestamp Fecha Fin kraken:", to_time)
+            #st.write("Timestamp Fecha Inicio kraken:", since_time)
+            #st.write("Timestamp Fecha Fin kraken:", to_time)
         
             if since_time >= to_time:
                 raise ValueError("El parámetro 'since' debe ser anterior al parámetro 'to'.")
