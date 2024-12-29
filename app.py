@@ -54,13 +54,14 @@ if st.sidebar.button("Iniciar Estrategia"):
     with st.spinner("Descargando datos desde Kraken..."):
         estrategia.download_kraken_data()
         st.dataframe(estrategia.data.head())
-        estrategia.download_kraken_data(graph=1)
-        estrategia.calculate_bollinger_bands(graph=1)
-        estrategia.calculate_rsi(graph=1)
+        
 
     
     if estrategia.data is not None:
         st.write("Datos descargados exitosamente:")
+        estrategia.download_kraken_data(graph=1)
+        estrategia.calculate_bollinger_bands(graph=1)
+        estrategia.calculate_rsi(graph=1)
 
 
         # Generar señales y backtest
